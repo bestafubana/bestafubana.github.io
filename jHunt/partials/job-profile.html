@@ -1,0 +1,73 @@
+
+<!--  New Position Form -->
+<form name="newProfileForm" ng-submit="addJob()">
+
+  <h4>
+    Add a new open position
+    <input type="button" ng-click="toggleForm()" value="+"  class="btnIcon" />
+  </h4>
+
+  <fieldset id="formBox" style="display:none">
+
+    <label>Link
+      <input type="text" ng-model="job.link" placeholder="Link for the position page"/>
+    </label>
+
+    <label>Position Name
+      <input type="text" ng-model="job.position" placeholder="Software Engineer"/>
+    </label>
+    <br/>
+    <label>Job Excitement &hearts;
+      <select ng-change="updateStars(job, newStars)" ng-model="newStars" class="" id="starsSelect">
+        <option value="-1"> - Rate from 1 to 5 stars - </option>
+        <option value="1">&hearts;</option>
+        <option value="2">&hearts;&hearts;</option>
+        <option value="3">&hearts;&hearts;&hearts;</option>
+        <option value="4">&hearts;&hearts;&hearts;&hearts;</option>
+        <option value="5">&hearts;&hearts;&hearts;&hearts;&hearts;</option>
+      </select>
+    </label>
+
+    <label>Process Stage
+      <select ng-model="job.status" ng-options="statuses for statuses in statuses" title="Status">
+        <option value> - </option>
+      </select>
+    </label>
+
+    <hr/>
+
+    <fieldset>
+      
+      <legend>Company</legend>
+
+      <label>Name
+        <input type="text" ng-model="job.company.name" placeholder="Pied Piper"/>
+      </label>
+
+      <label>Website
+        <input type="text" ng-model="job.company.website" placeholder="www.piedpiper.com"/>
+      </label>
+
+    </fieldset>
+
+    <fieldset>
+      
+      <legend>Contact Person</legend>
+
+      <label>First Name
+        <input type="text" ng-model="job.contactPerson.firstName" placeholder="Allan"/>
+      </label>
+      
+      <label>Last Name
+        <input type="text" ng-model="job.contactPerson.lastName" placeholder="Stallone"/>
+      </label>
+      
+      <label>Email
+        <input type="text" ng-model="job.contactPerson.email" placeholder="Email"/>
+      </label>
+
+    </fieldset>
+
+    <input type="submit" value="Submit new Position" class="btnIcon"/>
+  </fieldset>
+</form>
